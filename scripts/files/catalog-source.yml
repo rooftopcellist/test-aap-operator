@@ -1,0 +1,11 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: 'test-aap-operator-automation'
+  namespace: openshift-marketplace
+spec:
+  displayName: 'AAP Operator Dev Nightlies (2.2.x)'
+  image: "quay.io/aap/aap-cloud-index:2.2.x-latest"
+  publisher: 'AAP Dev Team'
+  sourceType: grpc

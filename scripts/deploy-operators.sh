@@ -1,33 +1,24 @@
 # -- Install AAP Operator
 
+# -- Create Catalog Source
+
+oc create -f files/catalog-source.yml
+
+# create operator group
+
+oc create -f files/operator-group.yml
+
 # create subscription object
 
-
+oc create -f files/subscription.yml
 
 # -- Create deployment
 
 # create an AutomationController CR
-
+oc create -f files/controller/controller-cr.yml
 
 # create an AutomationHub CR
+oc create -f files/hub/hub-cr.yml
 
 
-# -- Sanity Checks & Logs Checks
-# wait for ~ 6 minutes
-sleep 360
-
-# check pods for any not in the "Running" state
-
-
-# scrape logs of Controller web & task containers for unusual errors
-
-
-# scrape logs of Hub web, api, content, worker containers for unusual errors
-
-
-# scrape resources for imagePullBackoff errors
-
-
-# get CSV and subscription
-
-# print out the catalog-image the subscription was installed from
+echo "The AAP Operator has been installed on your cluster and the Controller and Hub custom resources have been deployed"

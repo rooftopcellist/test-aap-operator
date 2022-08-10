@@ -1,4 +1,5 @@
 oc new-project aap
+oc project aap
 
 # -- Pre-create any needed test resources
 
@@ -17,3 +18,12 @@ metadata:
 type: kubernetes.io/dockerconfigjson
 EOF
 
+
+# -- Create Hub Resources
+
+oc create -f files/hub/password.yml
+
+
+# -- Create Controller Resources
+
+oc create -f files/controller/password.yml
